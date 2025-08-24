@@ -77,3 +77,4 @@ while(num_removed < k):
     ranked_list[0]
 
 #tryna make github green lol
+#yes decidedly github
