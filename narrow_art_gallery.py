@@ -75,3 +75,5 @@ ranked_list = make_ranked_list(layout_grid)
 num_removed = 0
 while(num_removed < k):
     ranked_list[0]
+
+#tryna make github green lol
