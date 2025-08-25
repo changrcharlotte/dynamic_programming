@@ -8,6 +8,9 @@ def format_numbers(input_array):
     rows, cols = num_of_rows, 2
     grid =[[0]*cols for _ in range(rows)]
 
+    while len(input_array)-1 < num_of_rows:
+        input_array.append((0,0))
+
     for i in range(num_of_rows):
         grid[i][0]= input_array[i+1][0]
         grid[i][1] = input_array[i+1][1]
@@ -34,7 +37,7 @@ def check_possible_route(layout_grid):
     possible = False
 
 # rule: never close both rooms on the same row
-    for i in range(0, len(layout_grid)-1):
+    for i in range(0, len(layout_grid)):
         if layout_grid[i][0] == -1 and layout_grid[i][1] == -1:
             possible = False
             return possible
@@ -65,12 +68,10 @@ while True:
         a, b = map(int, input().split())
         if a == 0 and b == 0:
             break
-
-        a, b = map(int, input().split())
         input_data.append((a, b))
     except EOFError:  # end of input (if from file or redirected stdin)
         break
-input_data.pop()
+
 #print(input_data)#ignores sentinel values
 layout_grid= format_numbers(input_data)
 ranked_list = make_ranked_list(layout_grid)
@@ -78,6 +79,9 @@ num_removed = 0
 room_weight_index = 0
 
 for value in ranked_list.keys():
+    if value == 0:
+        print("stop")
+
     list_of_indexes = find_indexes_by_item(layout_grid, value)  # y, x
     for n in list_of_indexes:
         burner_layout_grid = [row[:] for row in layout_grid]
