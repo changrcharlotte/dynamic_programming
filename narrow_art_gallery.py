@@ -29,7 +29,7 @@ def make_ranked_list(gallery_layout):
                 value_dict[gallery_layout[i][j]] +=1
 
     sorted_by_key = dict(sorted(value_dict.items()))
-    print(sorted_by_key)
+    #print(sorted_by_key)
 
     return sorted_by_key
 
@@ -61,7 +61,7 @@ def find_indexes_by_item(layout_grid, item_to_find):
     return list_of_indexes
 
 
-print("input data:")
+#print("input data:")
 input_data = []
 while True:
     try:
@@ -79,8 +79,8 @@ num_removed = 0
 room_weight_index = 0
 
 for value in ranked_list.keys():
-    if value == 0:
-        print("stop")
+    #if value == 0:
+        #print("stop")
 
     list_of_indexes = find_indexes_by_item(layout_grid, value)  # y, x
     for n in list_of_indexes:
@@ -100,5 +100,5 @@ for i in range(0, len(layout_grid)):
     for j in range(0, 2):
         if layout_grid[i][j] != -1:
             total += layout_grid[i][j]
-print(layout_grid)
-print(f"total is {total} !")
+#print(layout_grid)
+print(total)
